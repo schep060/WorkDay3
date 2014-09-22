@@ -10,20 +10,21 @@ Public Class Form1
 
         Dim st1 As String = txtFirstNum.Text
         Dim st2 As String = txtSecondNum.Text
-
-        num1 = CDbl(st1)
-        num2 = CDbl(st2)
-
         Dim result As String
 
-        If num1 > num2 Then
-            result = "The larger number is " & num1
-        ElseIf num2 > num1 Then
-            result = "The larger number is " & num2
+        If IsNumeric(st1) And IsNumeric(st2) Then
+            num1 = CDbl(st1)
+            num2 = CDbl(st2)
+            If num1 > num2 Then
+                result = "The larger number is " & num1
+            ElseIf num2 > num1 Then
+                result = "The larger number is " & num2
+            Else
+                result = "They are equal"
+            End If
         Else
-            result = "They are equal"
+            MessageBox.Show("Input invalid")
         End If
-
         txtResult.Text = result
     End Sub
 
